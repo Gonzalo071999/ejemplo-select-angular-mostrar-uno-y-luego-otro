@@ -1,0 +1,21 @@
+<select [(ngModel)]="opcionSeleccionado" (change)="capturar()">
+  <option value="0">Selecciona una opción</option>
+  <option *ngFor="let dato of datos" [value]="dato.id">
+    {{ dato.name }}
+  </option>
+</select>
+
+<select
+  *ngIf="opcionSeleccionado != 0"
+  [(ngModel)]="opcionSeleccionadoPlaza"
+  (change)="PlazsAfllizaciones()"
+>
+  <option value="0">Selecciona una opción</option>
+  <option *ngFor="let datos of plazasAfilziaciones" [value]="datos.id">
+    {{ datos.name }}
+  </option>
+</select>
+
+<p [hidden]="opcionSeleccionado == '0'">
+  Haz seleccionado la opción # {{ verSeleccion }}
+</p>
